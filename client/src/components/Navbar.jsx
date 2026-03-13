@@ -12,14 +12,34 @@ const Navbar = () => {
 
             <div className='flex items-center justify-between px-4 sm:px-6 h-18'>
 
+                {/* Mobile Menu Button (LEFT) */}
+                <button
+                    onClick={() => setIsMenuOpen((prev) => !prev)}
+                    className="md:hidden  text-primary z-50"
+                    aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
+                >
+                    {isMenuOpen ? (
+                        <X className="h-8 w-8" />
+                    ) : (
+                        <TextAlignJustify className="h-8 w-8" />
+                    )}
+                </button>
+
                 {/* Logo */}
-                <div className='flex items-center'>
+                <Link to="/" className="flex items-center">
+                    <img className="h-16 w-auto object-contain" src={logo} alt="Earthix" />
+                </Link>
+
+                {/* Desktop Menu */}
+
+                {/* Logo */}
+                <div className='hidden sm:block items-center'>
                     <Link to="/" class="w-fit">
                         <img className='h-18 w-auto object-contain' src={logo} alt="Earthix" />
                     </Link>
                 </div>
 
-                {/* Desktop Menu */}
+
                 <div className='hidden md:flex items-center gap-4 md:gap-6'>
                     <div>
                         <Link to="/services">
@@ -61,7 +81,6 @@ const Navbar = () => {
 
                 {/* Desktop Buttons */}
 
-
                 <div className='hidden md:flex items-center gap-2'>
                     <Link to="/trial" className="px-7 py-2 rounded-full border font-medium text-primary hover:text-white text-center hover:bg-[#9AC64E] active:bg-[#215070] transition cursor-pointer" >
                         Try Free
@@ -76,29 +95,29 @@ const Navbar = () => {
 
                 {/* Mobile Button */}
 
-                <button
+                {/* <button
                     onClick={() => setIsMenuOpen((prev) => !prev)}
                     className="md:hidden p-2 text-primary z-50"
                     aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
                 >
                     {isMenuOpen ? <X className='h-8 w-8' /> : <TextAlignJustify className='h-8 w-8' />}{" "}
-                </button>
+                </button> */}
 
             </div>
 
             {/* Mobile Menu */}
-            <div className={`md:hidden fixed top-0 right-0 h-full w-full bg-white shadow-lg transform transition-transform duration-300 ease-in-out ${isMenuOpen ? "translate-x-0" : "translate-x-full"}`}>
+            <div className={`md:hidden fixed top-0 left-0 h-full w-full bg-white shadow-lg transform transition-transform duration-300 ease-in-out ${isMenuOpen ? "translate-x-0" : "-translate-x-full"}`}>
 
-                <div className="flex flex-col gap-6 p-6 pt-24 text-gray-700 font-medium">
+                <div className="flex flex-col p-6 pt-20 text-gray-700 font-medium">
 
-                    <Link onClick={() => setIsMenuOpen(false)} to="/services">Services</Link>
-                    <Link onClick={() => setIsMenuOpen(false)} to="/solutions">Solutions</Link>
-                    <Link onClick={() => setIsMenuOpen(false)} to="/pricing">Pricing</Link>
-                    <Link onClick={() => setIsMenuOpen(false)} to="/partners">Partners</Link>
-                    <Link onClick={() => setIsMenuOpen(false)} to="/resources">Resources</Link>
-                    <Link onClick={() => setIsMenuOpen(false)} to="/support">Support</Link>
+                    <Link onClick={() => setIsMenuOpen(false)} to="/services" className='border-b border-t border-gray-200 pb-3 pt-3'>Services</Link>
+                    <Link onClick={() => setIsMenuOpen(false)} to="/solutions" className='border-b border-gray-200 pb-3 pt-3'>Solutions</Link>
+                    <Link onClick={() => setIsMenuOpen(false)} to="/pricing" className='border-b border-gray-200 pb-3 pt-3'>Pricing</Link>
+                    <Link onClick={() => setIsMenuOpen(false)} to="/partners" className='border-b border-gray-200 pb-3 pt-3'>Partners</Link>
+                    <Link onClick={() => setIsMenuOpen(false)} to="/resources" className='border-b border-gray-200 pb-3 pt-3'>Resources</Link>
+                    <Link onClick={() => setIsMenuOpen(false)} to="/support" className='border-b border-gray-200 pb-3 pt-3'>Support</Link>
 
-                    <div className="flex flex-col gap-3 pt-4 border-t">
+                    <div className="flex flex-col gap-3 pt-4">
 
                         <Link
                             to="/trial"
@@ -109,7 +128,7 @@ const Navbar = () => {
 
                         <Link
                             to="/login"
-                            className="px-6 py-2 text-center rounded-full bg-primary text-white hover:opacity-90 transition"
+                            className="px-6 py-2 text-center rounded-full bg-primary text-white active:bg-[#215070] hover:opacity-90 transition"
                         >
                             Login
                         </Link>
