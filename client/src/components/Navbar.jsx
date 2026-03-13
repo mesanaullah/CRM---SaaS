@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/earthix_svg.svg';
-import { X, TextAlignJustify, ChevronRight, ChevronDown } from 'lucide-react';
+import { X, TextAlignJustify, ChevronRight, ChevronDown, MoveRight } from 'lucide-react';
 
 const Navbar = () => {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
-        <nav className="w-full bg-white py-2 shadow-sm">
+        <nav className="sticky top-0 z-50 w-full bg-white py-2 shadow-sm">
 
             <div className='flex items-center justify-between px-4 sm:px-6 h-18'>
 
@@ -26,7 +26,7 @@ const Navbar = () => {
                 </button>
 
                 {/* Logo */}
-                <Link to="/" className="flex items-center">
+                <Link to="/" className=" block sm:hidden items-center">
                     <img className="h-16 w-auto object-contain" src={logo} alt="Earthix" />
                 </Link>
 
@@ -82,12 +82,12 @@ const Navbar = () => {
                 {/* Desktop Buttons */}
 
                 <div className='hidden md:flex items-center gap-2'>
-                    <Link to="/trial" className="px-7 py-2 rounded-full border font-medium text-primary hover:text-white text-center hover:bg-[#9AC64E] active:bg-[#215070] transition cursor-pointer" >
+                    <Link to="/trial" className="px-8 py-2 rounded-full border font-normal text-primary hover:text-white text-center hover:bg-[#9AC64E] active:bg-[#215070] transition cursor-pointer" >
                         Try Free
                     </Link>
 
-                    <Link to="/login" className="px-8 py-2 rounded-full bg-primary font-medium text-white text-center active:bg-[#215070] hover:opacity-95 transition cursor-pointer" >
-                        Login
+                    <Link to="/login" className="px-8 py-2 rounded-full bg-primary font-normal text-white text-center active:bg-[#215070] hover:opacity-95 transition cursor-pointer" >
+                        <span className='flex gap-1'>Login <MoveRight /> </span>
                     </Link>
                 </div>
 
