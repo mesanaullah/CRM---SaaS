@@ -58,7 +58,7 @@ const Hero = () => {
                     {/* Right Illustration / Image */}
                     <div className="relative">
 
-                        <div className="bg-linear-to-tr from-[#E8F4F3] to-[#F6FAFA] rounded-2xl p-6 shadow-sm">
+                        <div className="bg-linear-to-tr from-[#E8F4F3] to-[#F6FAFA] rounded-xl object-contain shadow-sm">
 
                             <img
                                 src="/crm-dashboard.png"
