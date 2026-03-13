@@ -1,1 +1,29 @@
 @import "tailwindcss";
+
+
+* {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+
+@layer utilities {
+  .bg-primary {
+    background-color: #4093A8;
+  }
+
+  .bg-secondary {
+    background-color: #9AC64E;
+  }
+  
+  /* .bg-secondary {
+    background-color: #215070;
+  } */
+
+  .text-primary {
+    color: #4093A8;
+  }
+
+  .text-secondary {
+    color: #9AC64E;
+  }
+}
