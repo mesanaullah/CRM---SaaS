@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from "react-router-dom";
-import { Instagram, Facebook, Twitter, Linkedin, Github, Mail } from "lucide-react";
+import { Instagram, Facebook, Twitter, Linkedin, Github, Mail, Youtube } from "lucide-react";
 import logo from "../assets/earthix_svg.svg";
-// import NewsLetter from './NewsLetter';
+import Newsletter from './Newsletter';
 
 
 const Footer = () => {
@@ -10,44 +10,10 @@ const Footer = () => {
         <div>
             <footer className="bg-gray-50">
 
-                {/* Newsletter Section */}
-                <div className="border-t border-gray-200 ">
-
-                    <div className="max-w-7xl mx-auto px-6 lg:px-8 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
-
-                        <div>
-                            <h4 className="text-lg font-semibold text-gray-900">
-                                Subscribe to our newsletter
-                            </h4>
-
-                            <p className="text-sm text-gray-600">
-                                Get product updates and CRM insights.
-                            </p>
-                        </div>
-
-                        <div className="flex w-full md:w-auto">
-
-                            <input
-                                type="email"
-                                placeholder="Enter your email"
-                                className="px-4 py-2 w-full md:w-72 border rounded-l-lg outline-none"
-                            />
-
-                            <button className="bg-primary text-white px-5 rounded-r-lg hover:opacity-95 transition">
-                                Subscribe
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </div>
-                {/* <NewsLetter/> */}
-
                 {/* Main Footer */}
-                <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
+                <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-16">
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 pb-10 gap-10">
 
                         {/* Brand */}
                         <div className="lg:col-span-2">
@@ -60,22 +26,26 @@ const Footer = () => {
                             </p>
 
                             {/* Social */}
-                            <div className="flex items-center gap-4 mt-6">
+                            <div className="flex items-center gap-4 mt-4">
 
-                                <a href="https://www.instagram.com/earthix.in/" className=" p-2 rounded-md text-primary shadow-sm hover:bg-gray-100 transition cursor-pointer">
-                                    <Instagram size={18} />
+                                <a href="https://www.instagram.com/earthix.in/" className=" pt-2 pb-2 pr-2 rounded-md text-primary hover:text-[#9AC64E] transition cursor-pointer">
+                                    <Instagram size={24} />
                                 </a>
 
-                                <a className="p-2 rounded-lg text-primary shadow-sm hover:bg-gray-100 transition cursor-pointer">
-                                    <Facebook size={18} />
+                                <a className="p-2 rounded-lg text-primary hover:text-[#9AC64E] transition cursor-pointer">
+                                    <Facebook size={24} />
                                 </a>
 
-                                <a className="p-2 rounded-lg text-primary shadow-sm hover:bg-gray-100 transition cursor-pointer">
-                                    <Twitter size={18} />
+                                <a className="p-2 rounded-lg text-primary hover:text-[#9AC64E] transition cursor-pointer">
+                                    <Twitter size={24} />
                                 </a>
 
-                                <a className="p-2 rounded-lg text-primary shadow-sm hover:bg-gray-100 transition cursor-pointer">
-                                    <Linkedin size={18} />
+                                <a className="p-2 rounded-lg text-primary hover:text-[#9AC64E] transition cursor-pointer">
+                                    <Linkedin size={24} />
+                                </a>
+
+                                <a className="p-2 rounded-lg text-primary hover:text-[#9AC64E] transition cursor-pointer">
+                                    <Youtube size={24} />
                                 </a>
 
                             </div>
@@ -90,7 +60,6 @@ const Footer = () => {
 
                                 <li><Link to="/features">Features</Link></li>
                                 <li><Link to="/pricing">Pricing</Link></li>
-                                <li><Link to="/integrations">Integrations</Link></li>
                                 <li><Link to="/updates">Product Updates</Link></li>
 
                             </ul>
@@ -103,8 +72,8 @@ const Footer = () => {
                             <ul className="mt-4 space-y-3 text-gray-600 text-sm">
 
                                 <li><Link to="/about">About Us</Link></li>
-                                <li><Link to="/careers">Careers</Link></li>
                                 <li><Link to="/partners">Partners</Link></li>
+                                <li><Link to="/careers">Careers</Link></li>
                                 <li><Link to="/contact">Contact</Link></li>
 
                             </ul>
@@ -116,15 +85,19 @@ const Footer = () => {
 
                             <ul className="mt-4 space-y-3 text-gray-600 text-sm">
 
-                                <li><Link to="/blog"></Link></li>
-                                <li><Link to="/guides"></Link></li>
                                 <li><Link to="/support">Help Center</Link></li>
+                                <li><Link to="/blog">Blog</Link></li>
+                                <li><Link to="/documentation">Documentation</Link></li>
                                 <li><Link to="/privacy">Privacy Policy</Link></li>
+                                <li><Link to="/terms">Terms of Service</Link></li>
 
                             </ul>
                         </div>
 
                     </div>
+
+                    {/* <Newsletter/> */}
+                    <Newsletter />
 
                 </div>
 
