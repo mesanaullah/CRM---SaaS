@@ -19,7 +19,9 @@ import {
     Headset,
     ChartNoAxesCombined,
     ChartSpline,
-    ChartPie
+    ChartPie,
+    Info,
+    Mail
 } from "lucide-react";
 
 const services = [
@@ -40,6 +42,11 @@ const solutions = [
     { name: "Marketing Campaigns", icon: Store },
     { name: "Customer Support", icon: Headset },
     { name: "Business Insights", icon: ChartPie },
+];
+
+const supports = [
+    { name: "Contact Us", icon: Mail },
+    { name: "About Us", icon: Info },
 ];
 
 const Navbar = () => {
@@ -81,7 +88,7 @@ const Navbar = () => {
                     </Link>
                 </div>
 
-
+                {/* -----------------------Desktop Menu-------------------------------- */}
                 <div className='hidden md:flex items-center gap-4 md:gap-6'>
 
                     {/* Services Dropdown */}
@@ -95,7 +102,7 @@ const Navbar = () => {
                         </button>
 
                         <div
-                            className={`absolute left-0 top-10 w-130 bg-white shadow-xl rounded-xl p-4 transition-all duration-200 ${openMega === "services"
+                            className={`absolute left-0 top-10 w-130 bg-white shadow-xl rounded-xl p-2 transition-all duration-200 ${openMega === "services"
                                 ? "opacity-100 visible translate-y-0"
                                 : "opacity-0 invisible translate-y-3"
                                 }`}
@@ -140,7 +147,7 @@ const Navbar = () => {
                         </button>
 
                         <div
-                            className={`absolute left-0 top-10 w-105 bg-white shadow-xl rounded-2xl p-4 transition-all duration-200 ${openMega === "solutions"
+                            className={`absolute left-0 top-10 w-105 bg-white shadow-xl rounded-2xl p-2 transition-all duration-200 ${openMega === "solutions"
                                 ? "opacity-100 visible translate-y-0"
                                 : "opacity-0 invisible translate-y-3"
                                 }`}
@@ -201,10 +208,58 @@ const Navbar = () => {
                         </Link>
                     </div>
 
-                    <div>
-                        <Link to="/support" className="hover:text-[#4093A8]">
-                            <span>Support</span>
-                        </Link>
+                    {/* ------------------Support------------------- */}
+                    <div
+                        className="relative"
+                        onMouseEnter={() => setOpenMega("supports")}
+                        onMouseLeave={() => setOpenMega(null)}
+                    >
+                        <button className="flex items-center gap-1 font-medium hover:text-[#4093A8]">
+                            Support <ChevronDown size={16} />
+                        </button>
+
+                        <div
+                            className={`absolute left-0 top-10 w-65 bg-white shadow-xl rounded-xl p-2 transition-all duration-200 ${openMega === "supports"
+                                ? "opacity-100 visible translate-y-0"
+                                : "opacity-0 invisible translate-y-3"
+                                }`}
+                        >
+
+                            <div className="flex flex-col gap-2">
+
+                                {supports.map(({ name, icon: Icon }, index) => (
+
+                                    <Link
+                                        key={index}
+                                        to={name === "About Us" ? "/about" : "/contact"}
+                                        className="flex items-center gap-2 p-2 rounded-xl hover:bg-gray-100 transition group"
+                                    >
+
+                                        <div className="p-2 rounded-lg bg-primary/10 text-primary">
+                                            <Icon size={18} />
+                                        </div>
+
+                                        <div className="flex justify-between w-full items-center">
+
+                                            <span className="text-sm font-medium">
+                                                {name}
+                                            </span>
+
+                                            <ChevronRight
+                                                size={16}
+                                                className="opacity-0 group-hover:opacity-100 transition"
+                                            />
+
+                                        </div>
+
+                                    </Link>
+
+                                ))}
+
+                            </div>
+
+                        </div>
+
                     </div>
 
                 </div>
@@ -223,14 +278,14 @@ const Navbar = () => {
 
             </div>
 
-            {/* Mobile Menu */}
+            {/*---------------- Mobile Menu------------------- */}
 
             <div className={`md:hidden fixed top-0 left-0 h-full w-full bg-white shadow-lg transform transition-transform duration-300 ease-in-out ${isMenuOpen ? "translate-x-0" : "-translate-x-full"}`}>
 
                 <div className="flex flex-col p-6 pt-20 text-gray-700 font-medium">
 
                     {/* <Link onClick={() => setIsMenuOpen(false)} to="/services" className='border-b border-t border-gray-200 pb-3 pt-3'>Services</Link> */}
-
+                    {/* mobile services dropdown */}
                     <div className="border-b border-gray-200">
 
                         <button
@@ -253,7 +308,7 @@ const Navbar = () => {
                                     <Link
                                         key={index}
                                         to="/services"
-                                        className="flex items-center gap-3 pl-4 py-2 text-sm text-gray-600 hover:text-primary"
+                                        className="flex items-center gap-3 pl-4 py-2 text-sm text-gray-600 hover:text-[#4093A8]  border-t border-gray-200"
                                     >
                                         <Icon size={16} />
                                         {name}
@@ -265,12 +320,75 @@ const Navbar = () => {
 
                     </div>
 
+                    {/* mobile solutions dropdown */}
+                    <div className="border-b border-gray-200">
 
-                    <Link onClick={() => setIsMenuOpen(false)} to="/solutions" className='border-b border-gray-200 pb-3 pt-3'>Solutions</Link>
+                        <button
+                            onClick={() => setMobileDropdown(mobileDropdown === "solutions" ? null : "solutions")}
+                            className="flex justify-between items-center w-full py-3"
+                        >
+                            Solutions
+                            <ChevronDown size={18} />
+                        </button>
+
+                        <div
+                            className={`overflow-hidden transition-all duration-300 ${mobileDropdown === "solutions" ? "max-h-96" : "max-h-0"}`}
+                        >
+                            <div className="flex flex-col pb-2">
+
+                                {solutions.map(({ name, icon: Icon }, index) => (
+                                    <Link
+                                        key={index}
+                                        to="/solutions"
+                                        className="flex items-center gap-3 pl-4 py-2 text-sm text-gray-600 hover:text-[#4093A8]  border-t border-gray-200"
+                                    >
+                                        <Icon size={16} />
+                                        {name}
+                                    </Link>
+                                ))}
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    {/* <Link onClick={() => setIsMenuOpen(false)} to="/solutions" className='border-b border-gray-200 pb-3 pt-3'>Solutions</Link> */}
                     <Link onClick={() => setIsMenuOpen(false)} to="/pricing" className='border-b border-gray-200 pb-3 pt-3'>Pricing</Link>
                     <Link onClick={() => setIsMenuOpen(false)} to="/partners" className='border-b border-gray-200 pb-3 pt-3'>Partners</Link>
                     <Link onClick={() => setIsMenuOpen(false)} to="/resources" className='border-b border-gray-200 pb-3 pt-3'>Resources</Link>
-                    <Link onClick={() => setIsMenuOpen(false)} to="/support" className='border-b border-gray-200 pb-3 pt-3'>Support</Link>
+
+                    {/* mobile support dropdown */}
+                    <div className="border-b border-gray-200">
+
+                        <button
+                            onClick={() => setMobileDropdown(mobileDropdown === "supports" ? null : "supports")}
+                            className="flex justify-between items-center w-full py-3"
+                        >
+                            Supports
+                            <ChevronDown size={18} />
+                        </button>
+
+                        <div
+                            className={`overflow-hidden transition-all duration-300 ${mobileDropdown === "supports" ? "max-h-96" : "max-h-0"}`}
+                        >
+                            <div className="flex flex-col pb-2">
+
+                                {supports.map(({ name, icon: Icon }, index) => (
+                                    <Link
+                                        key={index}
+                                        to={name === "About Us" ? "/about" : "/contact"}
+                                        className="flex items-center gap-3 pl-4 py-2 text-sm text-gray-600 hover:text-[#4093A8]  border-t border-gray-200"
+                                    >
+                                        <Icon size={16} />
+                                        {name}
+                                    </Link>
+                                ))}
+
+                            </div>
+                        </div>
+
+                    </div>
+
 
                     <div className="flex flex-col gap-3 pt-4">
 
