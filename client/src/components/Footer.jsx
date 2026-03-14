@@ -32,7 +32,7 @@ const Footer = () => {
                                     <Instagram size={24} />
                                 </a>
 
-                                <a className="p-2 rounded-lg text-primary hover:text-[#9AC64E] transition cursor-pointer">
+                                <a href="https://www.facebook.com/people/Earthix/61583703884585/" className="p-2 rounded-lg text-primary hover:text-[#9AC64E] transition cursor-pointer">
                                     <Facebook size={24} />
                                 </a>
 
@@ -40,7 +40,7 @@ const Footer = () => {
                                     <Twitter size={24} />
                                 </a>
 
-                                <a className="p-2 rounded-lg text-primary hover:text-[#9AC64E] transition cursor-pointer">
+                                <a href="https://www.linkedin.com/company/earthix-crm/about/?viewAsMember=true" className="p-2 rounded-lg text-primary hover:text-[#9AC64E] transition cursor-pointer">
                                     <Linkedin size={24} />
                                 </a>
 
